@@ -83,6 +83,67 @@
         <skipStaging>true</skipStaging>
         </configuration>
     </plugin>
+    
+    
+    <!-- Test -->
+    <plugin>
+<groupId>org.codehaus.cargo</groupId>
+<artifactId>cargo-maven2-plugin</artifactId>
+<version>1.0-beta-2</version>
+<configuration>
+<wait>true</wait>
+<container>
+<containerId>tomcat7x</containerId>
+<type>installed</type>
+<home>${catalina.home}</home>
+</container>
+<configuration>
+<type>existing</type>
+<home>${catalina.home}</home>
+</configuration>
+<deployer>
+<type>installed</type>
+<deployables>
+<deployable>
+<groupId>com.mst</groupId>
+<artifactId>web1</artifactId>
+<type>war</type>
+</deployable>
+</deployables>
+</deployer>
+</configuration>
+<executions>
+<!--
+Maven has the concept of a 'phase' which can be thought of a
+collection of goals. Hence here we are specifying that during the
+'install' phase first deploy the webapp to the container specific
+folder and then start the container. Both 'deployer-deploy' and
+'start' are cargo specific goals.
+-->
+<execution>
+<id>verify-deploy</id>
+<phase>install</phase>
+<goals>
+<goal>deployer-deploy</goal>
+<goal>start</goal>
+</goals>
+</execution>
+<!--
+Specifying that during the 'pre-clean' phase, Cargo should first
+stop the container.
+-->
+<execution>
+<id>clean-undeploy</id>
+<phase>pre-clean</phase>
+<goals>
+<goal>stop</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+
+
+
     </plugins>
    </build>
    </profile>
