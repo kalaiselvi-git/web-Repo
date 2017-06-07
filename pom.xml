@@ -4,7 +4,7 @@
   <groupId>com.mst</groupId>
   <artifactId>web1</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.6-SNAPSHOT</version>
   <name>web1 Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <scm>
@@ -58,6 +58,11 @@
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
+        <configuration>
+		<url>http://localhost:8090/manager/text</url>
+		<server>TomcatServer</server>
+		<path>/mkyongWebApp</path>
+	</configuration>
     	</plugin>
     	
     	<plugin>
@@ -84,8 +89,8 @@
         </configuration>
     </plugin>
     
-    
-    <!-- Test -->
+  
+   <!--  Test 
     <plugin>
 <groupId>org.codehaus.cargo</groupId>
 <artifactId>cargo-maven2-plugin</artifactId>
@@ -113,13 +118,13 @@
 </deployer>
 </configuration>
 <executions>
-<!--
+
 Maven has the concept of a 'phase' which can be thought of a
 collection of goals. Hence here we are specifying that during the
 'install' phase first deploy the webapp to the container specific
 folder and then start the container. Both 'deployer-deploy' and
 'start' are cargo specific goals.
--->
+
 <execution>
 <id>verify-deploy</id>
 <phase>install</phase>
@@ -128,10 +133,10 @@ folder and then start the container. Both 'deployer-deploy' and
 <goal>start</goal>
 </goals>
 </execution>
-<!--
+
 Specifying that during the 'pre-clean' phase, Cargo should first
 stop the container.
--->
+
 <execution>
 <id>clean-undeploy</id>
 <phase>pre-clean</phase>
@@ -140,7 +145,7 @@ stop the container.
 </goals>
 </execution>
 </executions>
-</plugin>
+</plugin> -->
 
 
 
