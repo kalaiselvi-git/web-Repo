@@ -4,7 +4,7 @@
   <groupId>com.mst</groupId>
   <artifactId>web1</artifactId>
   <packaging>war</packaging>
-  <version>4.4.5-SNAPSHOT</version>
+  <version>4.4.4-SNAPSHOT</version>
   <name>Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <scm>
