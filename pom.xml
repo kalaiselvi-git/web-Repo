@@ -5,33 +5,31 @@
   <artifactId>web1</artifactId>
   <packaging>war</packaging>
   <version>0.0.6-SNAPSHOT</version>
-  <name>web1 Maven Webapp</name>
+  <name>Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <scm>
      <connection>scm:git:https://github.com/kalaiselvi-git/web-Repo.git</connection>
      <developerConnection>scm:git:https://github.com/kalaiselvi-git/web-Repo.git</developerConnection>
      <url>https://github.com/kalaiselvi-git/web-Repo.git</url>
-     <tag>webApps-0.0.9</tag>
-     
+     <tag>webApps-0.0.9</tag>     
   </scm>
-
   <distributionManagement>
    <repository>
       <id>releases</id>
       <name>Releases</name>
-      <url>http://localhost:8081/nexus/content/repositories/releases</url>
+      <url>http://localhost:8081/nexus/content/repositories/releases/</url>
    </repository>
    <snapshotRepository>
     <id>snapshots</id>
     <name>Snapshots</name>
-    <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+    <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
     </snapshotRepository>
-	     </distributionManagement> 
+	</distributionManagement> 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.2</version>
+      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   <dependency>
@@ -88,67 +86,6 @@
         <skipStaging>true</skipStaging>
         </configuration>
     </plugin>
-    
-  
-   <!--  Test 
-    <plugin>
-<groupId>org.codehaus.cargo</groupId>
-<artifactId>cargo-maven2-plugin</artifactId>
-<version>1.0-beta-2</version>
-<configuration>
-<wait>true</wait>
-<container>
-<containerId>tomcat7x</containerId>
-<type>installed</type>
-<home>${catalina.home}</home>
-</container>
-<configuration>
-<type>existing</type>
-<home>${catalina.home}</home>
-</configuration>
-<deployer>
-<type>installed</type>
-<deployables>
-<deployable>
-<groupId>com.mst</groupId>
-<artifactId>web1</artifactId>
-<type>war</type>
-</deployable>
-</deployables>
-</deployer>
-</configuration>
-<executions>
-
-Maven has the concept of a 'phase' which can be thought of a
-collection of goals. Hence here we are specifying that during the
-'install' phase first deploy the webapp to the container specific
-folder and then start the container. Both 'deployer-deploy' and
-'start' are cargo specific goals.
-
-<execution>
-<id>verify-deploy</id>
-<phase>install</phase>
-<goals>
-<goal>deployer-deploy</goal>
-<goal>start</goal>
-</goals>
-</execution>
-
-Specifying that during the 'pre-clean' phase, Cargo should first
-stop the container.
-
-<execution>
-<id>clean-undeploy</id>
-<phase>pre-clean</phase>
-<goals>
-<goal>stop</goal>
-</goals>
-</execution>
-</executions>
-</plugin> -->
-
-
-
     </plugins>
    </build>
    </profile>
